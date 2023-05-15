@@ -1,8 +1,8 @@
 # Challenge Alura + Oracle
 ## Decodificador de texto com Javascript - em construção
 
-<img src="./imgs/preview_dark_mode.png" width=450>
-<img src="./imgs/preview_light_mode.png" width=450>
+<img src="./imgs/preview_dark_mode.png" width=350>
+<img src="./imgs/preview_light_mode.png" width=350>
 
 Clique [AQUI](https://github.com/thiagofeldner/Decodificador-de-Texto) para acessar o projeto completo.
 <br>
