@@ -128,7 +128,7 @@ body * {
   color: var(--text-info);
 
   margin-left: 4px;
-  font-weight: 400;
+  
   font-size: 12px;
 }
 
@@ -222,9 +222,9 @@ body * {
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
 
   width: 440px;
-  height: 910px;
+  height: 710px;
   
-  margin-top: 24px;
+  margin-top: 20px;
   margin-left: 520px;
 
   border-radius: 20px;
@@ -238,7 +238,7 @@ body * {
   display: block;
   position: absolute;
   color: var(--text-color);
-  margin-top: 660px;
+  margin-top: 540px;
   margin-left: 580px;
   align-items: center;
 
@@ -262,7 +262,7 @@ body * {
   justify-content: center;
   padding: 24px 0;
   font-size: 28px;
-  margin-top: 800px;
+  margin-top: 840px;
   color: var(--text-color);
 }
 
