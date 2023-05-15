@@ -1,4 +1,4 @@
-/* Troca cor de fundo */
+/* Troca cor de fundo e cor da logo*/
 
 function toggleMode() {
   const html = document.documentElement;
