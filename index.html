@@ -3,6 +3,7 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
   <meta charset="UTF-8">
@@ -21,49 +22,49 @@
     <span></span>
   </div>
   
-  <section>
-    <textarea class="texto" placeholder="Digite seu texto"></textarea>
+  <main>
+    <div class="text">
+      <textarea type="text" id="textInput" placeholder="Digite seu texto"></textarea>
 
-    <div class="info">
-      <img src="imgs/info.svg" alt="icone informação">
-      <h6>Apenas letras minúsculas e sem acento.</h6>
+      <div class="informacoes">
+        <img src="./imgs/info.svg" alt="Logo de informações">
+        <span>Apenas letras minúsculas e sem acento.</span>
+      </div>
+      <div class="botoes">
+        <button class="criptografar" id="encrypt" onclick="encryptText()">Criptografar</button>
+        <button class="descriptografar" id="decrypt">Descriptografar</button>
+      </div>
     </div>
-
-    <div class="botoes">
-      <button class="btn_criptografar" onclick="btnCriptografar()">Criptografar</button>
-      <button class="btn_descriptografar" onclick="btnDescriptografar()">Descriptografar</button>
+    <div class="resultado">
+      <div class="com-texto" id="withText">
+        <textarea class="saida" id="output" disabled></textarea>
+        <button class="copiar" id="copy">Copiar</button>
+      </div>
+      <div class="sem-texto" id="noText">
+        <img src="imgs/aluno.png" class="sem-img" alt="" />
+        <strong>Nenhuma mensagem encontrada</strong>
+        <span>Digite um texto que você deseja criptografar ou descriptografar</span
+        >
+      </div>
     </div>
-  </section>
+  </main>
 
-  <section>
-    <textarea class="msg" cols="30" rows="10"></textarea>
-    <div class="aviso">
-      <h1>Nenhuma mensagem </br>encontrada</h1>
-      <p>Digite um texto que você deseja </br>criptografar ou descriptografar.</p>
-    </div>
-    <button class="btn_copiar" hidden>Copiar</button>
-  </section>
+  <footer>
+      <a href="https://github.com/thiagofeldner" target="_blank">
+        <ion-icon name="logo-github"></ion-icon>
+      </a>
+      <a href="https://www.instagram.com/thiagofeldner" target="_blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+      <a href="https://www.linkedin.com/in/thiago-feldner" target="_blank">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a>
+      <a href="https://gitlab.com/thiagofeldner" target="_blank">
+        <ion-icon name="logo-gitlab"></ion-icon>
+      </a>    
+  </footer>
 
-  <div class="social-links">
-    <a href="https://github.com/thiagofeldner" target="_blank">
-      <ion-icon name="logo-github"></ion-icon>
-    </a>
-    <a href="https://www.instagram.com/thiagofeldner" target="_blank">
-      <ion-icon name="logo-instagram"></ion-icon>
-    </a>
-    <a href="https://www.linkedin.com/in/thiago-feldner" target="_blank">
-      <ion-icon name="logo-linkedin"></ion-icon>
-    </a>
-    <a href="https://gitlab.com/thiagofeldner" target="_blank">
-      <ion-icon name="logo-gitlab"></ion-icon>
-    </a>    
-  </div>
-
-  <!-- <footer class="rodape">
-    <p>Feito com ♥ pelo Thiago Feldner</p>
-  </footer> -->
-
-  <script src="main.js"></script>
+  <script src="./main.js"></script>
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

@@ -19,57 +19,66 @@ function toggleMode() {
 
 /*Codificar texto*/
 
-const textArea = document.querySelector(".texto");
-const msg = document.querySelector(".msg");
+let textInput = document.getElementById("textInput");
+let encrypt = document.getElementById("encrypt");
+let decrypt = document.getElementById("decrypt");
+let result = document.getElementById("output");
+let copyButton = document.getElementById("copy");
 
-function btnCriptografar() {
-  const textoCript = criptografar(textArea.value);
-  msg.value = textoCript;
-  textArea.value = "";
+document.getElementById("withText").style.display = "none";
+
+encrypt.onclick = encryptText;
+decrypt.onclick = decryptText;
+copyButton.onclick = copyText;
+
+function encryptText() {
+  let text = textInput.value;
+
+  let textResult = text
+    .replaceAll("e", "enter")
+    .replaceAll("i", "imes")
+    .replaceAll("a", "ai")
+    .replaceAll("o", "ober")
+    .replaceAll("u", "ufat");
+
+  result.innerHTML !== undefined && (result.value = textResult);
+  result.innerHTML;
+
+  if (result.value !== undefined) {
+    document.getElementById("withText").style.display = "block";
+    document.getElementById("noText").style.display = "none";
+  } else {
+    document.getElementById("withText").style.display = "none";
+    document.getElementById("noText").style.display = "block";
+  }    
 }
 
-function criptografar(stringCriptografada){
-  let matriz = [
-    ['e' , 'enter'],
-    ['i', 'imes'],
-    ['a', 'ai'],
-    ['o', 'ober'],
-    ['u', 'ufat']
-  ];
+function decryptText() {
+  let text = textInput.value;
 
-  stringCriptografada = stringCriptografada.toLowerCase();
+  let textResult = text
+    .replaceAll(/enter/g, "e")
+    .replaceAll(/imes/g, "i")
+    .replaceAll(/ai/g, "a")
+    .replaceAll(/ober/g, "o")
+    .replaceAll(/ufat/g, "u");
 
-  for(let i = 0; i < matriz.length; i++) {
-    if(stringCriptografada.includes(matriz[i][0])){
-      stringCriptografada = stringCriptografada.replaceAll(matriz[i][0], matriz[i][1]);
-    }
-  }
-  return stringCriptografada;
+  text !== textResult && (result.value = textResult);
 }
 
-/*Descodificar texto*/
+function copyText() {
+  result.select();
+  result.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(result.value);
 
-function btnDescriptografar() {
-  const textoDescript = descriptografar(textArea.value);
-  msg.value = textoDescript;
-  textArea.value = "";
+  alert("Texto copiado: " + result.value);
 }
 
-function descriptografar(stringDescriptografada){
-  let matriz = [
-    ['e' , 'enter'],
-    ['i', 'imes'],
-    ['a', 'ai'],
-    ['o', 'ober'],
-    ['u', 'ufat']
-  ];
 
-  stringDescriptografada = stringDescriptografada.toLowerCase();
+function btnCopiar(){
+  resultado.select();
+  resultado.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(resultado.value);
 
-  for(let i = 0; i < matriz.length; i++) {
-    if(stringDescriptografada.includes(matriz[i][1])){
-      stringDescriptografada = stringDescriptografada.replaceAll(matriz[i][1], matriz[i][0]);
-    }
-  }
-  return stringDescriptografada;
+  alert("Texto copiado: " + resultado.value);
 }

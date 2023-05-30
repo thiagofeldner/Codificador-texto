@@ -2,13 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-weight: 400;
+  font: 400 1rem Inter, sans-serif;
 }
 
 :root {
   --text-color: #FFFFFF;
   --text-info: #FFFFFF;
-  --bg-url: url(./imgs/bg_desktop_dark.png);
+  --bg-url: url(./imgs/bg_desktop_dark.png) no-repeat center/cover;
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(168, 10, 216, 0.5);
@@ -19,7 +19,7 @@
 .light {
   --text-color: #000000;
   --text-info: #000000;
-  --bg-url: url(./imgs/bg_desktop_light.png);
+  --bg-url: url(./imgs/bg_desktop_light.png) no-repeat center/cover;
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(168, 10, 216, 0.3);
@@ -28,33 +28,29 @@
 }
 
 body {
-  display: flex;
-  /* width: 100%;
-  
-  height: 100vh; */
-  background: var(--bg-url) no-repeat center/cover;
-  margin: auto;
-}
+  padding: 3.5rem 6.5rem;
+  background: var(--bg-url);
+  height: 100vh;
 
-body * {
-  font-family: 'Inter', sans-serif;
-}
+  @media(max-width: 760px;) {
+    padding: 5.5rem 3.5rem;
+  }
 
-.logo {  
-  margin-left: 24px;
-  margin-top: 20px; 
+  @media(max-width: 400px;) {
+    padding: 1rem;
+  }
 }
 
 .switch{
-  margin-top: 102px;
+  margin-top: 1rem;
   position: relative;
-  width: 64px;
+  width: 3.2rem;
 }
 
 .switch button {
-  width: 32px;
-  height: 32px;
-  background: #FFFFFF;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
   border: 0;
   border-radius: 50%;
   background: white var(--switch-bg-url) no-repeat center;
@@ -73,8 +69,8 @@ body * {
 
 .switch span {
   display: block;
-  width: 64px;
-  height: 24px;
+  width: 3.5rem;
+  height: 1.5rem;
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
   backdrop-filter: blur(4px);
@@ -86,187 +82,194 @@ body * {
   animation: slide-in .4s forwards;
 }
 
-.texto {  
-  display: block;
-  width: 420px;
-  height: 240px;
-  position: fixed;  
-  margin: 168px auto 0px auto;
+main {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
 
-  font-size: 32px;
-  background: var(--surface-color);
-  
-  border-style: none;
-  border: none;
+  width: 100%;
+  min-height: calc(100% - 100px);
+  max-width: 1400px;
+  margin: 40px auto 0;
+  gap: 5rem;
+
+  @media(max-width: 760px;) {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.text textarea {
+  width: 100%;
+  height: 100%;
   resize: none;
+  min-height: 180px;
+  border: none;
   outline: none;
-
+  font-size: 2rem;
   color: var(--text-color);
-  background-color: transparent;
+  background: transparent;
   text-transform: lowercase;
 }
 
 ::placeholder {
   color: var(--text-color);
+  font-size: 2rem;
   outline: none;
 }
 
-.info {
+.informacoes {
   display: flex;
-  
-  color: var(--text-color);
-  flex-direction: row;
   align-items: center;
-  position: fixed;
-  width: 250px;
-  height: 18px;
-  margin-left: 18px;
-  margin-top: 680px;
+  gap: 8px;
 }
 
-.info h6 {
+.informacoes span {
+  font-size: 0.75rem;
+  margin-top: 0;
   color: var(--text-info);
-
-  margin-left: 4px;
-  
-  font-size: 12px;
 }
 
 .botoes {
   display: flex;
- 
-  margin-left: 18px;
-  margin-top: 720px;
-  
+  width: 100%;
+  gap: 1.5rem;
+  margin-top: 1rem;
+
+  @media(max-width: 300px;) {
+    flex-direction: column;
+  }
 }
 
-.btn_criptografar {
+.botoes button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 18px;
+  min-width: 160px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3 ease-in;
+}
+
+.criptografar, .descriptografar, .copiar {
+  border: 1px solid var(--stroke-color);
   background: var(--surface-color);
   backdrop-filter: blur(4px);
-  border-radius: 18px;
-  border: 1px solid var(--stroke-color);
-  
   color: var(--text-color);
-  text-align: center;
-
-  width: 368px;
-  height: 67px;
-
-  font-size: 16px;
-  cursor: pointer;
-  transition: background .2s;
-
 }
 
-.btn_criptografar:hover {
+.criptografar:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid #FFFFFF;
   backdrop-filter: blur(4px);
 }
 
-.btn_descriptografar {
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  backdrop-filter: blur(4px);
-  border-radius: 18px;
-
-  color: var(--text-color);
-  text-align: center;
-  width: 368px;
-  height: 67px;
-
-  margin-left: 24px;
-
-  font-size: 16px;
-  cursor: pointer;
-  transition: background .2s;
-}
-
-.btn_descriptografar:hover {
+.descriptografar:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid #FFFFFF;
   backdrop-filter: blur(4px);
 }
 
-.btn_copiar {
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
-  backdrop-filter: blur(4px);
+.copiar{
+  width: 100%;
+  padding: 1rem;
   border-radius: 18px;
-  
-  color: var(--text-color);
-  text-align: center;
-
-  width: 368px;
-  height: 67px;
-
-  margin-top: 720px;
-  margin-left: 560px;
-
-  font-size: 16px;
+  min-width: 168px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: 0.3 ease-in;
 
-  transition: background .2s;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  color: var(--text-color);
 }
 
-.btn_copiar:hover {
+.copiar:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid #FFFFFF;
   backdrop-filter: blur(4px);
 }
 
-.msg {
-  display: block;
-  position: fixed;
-  background: url(imgs/aluno.png) rgba(255, 255, 255, 0.1) no-repeat center;
+.resultado {
+  margin-top: -160px;
+  background-color: transparent;
+  text-align: center;
+  max-width: 400px;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-
-  width: 440px;
-  height: 710px;
+  border-radius: 32px;
   
-  margin-top: 20px;
-  margin-left: 520px;
-
-  border-radius: 20px;
-  border-style: none;
-  resize: none;
-  text-transform: lowercase;
-  outline: none;
+  
+  @media (max-width: 760px) {
+    margin-top: 0;
+    max-width: 100%;
+  }
 }
 
-.aviso {
-  display: block;
-  position: absolute;
-  color: var(--text-color);
-  margin-top: 540px;
-  margin-left: 580px;
+.resultado .sem-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-
+  padding: 2rem;
+  height: 100%;
 }
 
-.aviso h1{
-  font-weight: 700;
-  font-size: 32px;
-  text-align: center;
+.resultado .com-texto{
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
 }
 
-.aviso p {
-  font-weight: 400;
-  text-align: center;
-  font-size: 18px;
-  margin-top: 18px;
+.com-texto textarea {
+  width: 100%;
+  height: calc(100% - 70px);
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.5rem;
+  text-transform: lowercase;
+  color: var(--text-color);
 }
 
-.social-links {
+.sem-img {
+  width: 100%;
+
+  @media(max-width:768px) {
+    display: none;
+
+  }
+}
+
+.resultado strong {
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.resultado span {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+footer {
   display: flex;
   justify-content: center;
-  padding: 24px 0;
-  font-size: 28px;
-  margin-top: 840px;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text-color);
+  margin-top: -1.25rem;
 }
 
-.social-links a {
+footer a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -276,24 +279,12 @@ body * {
   transition: background .2s;
 }
 
-.social-links a:hover {
+footer a:hover {
   background:var(--social-color) ;
 }
 
-
-/*Medias*/
-@media (min-width:700px) {
-  :root {
-    --bg-url: url(./imgs/bg_desktop_dark.png);
-  }
-
-  .light {
-    --bg-url: url(./imgs/bg_desktop_light.png);
-  }
-}
-
-/* animações*/
-
+/*animações*/
+ 
 @keyframes slide-in {
   from {
     left: 0;
@@ -310,4 +301,4 @@ body * {
   to {
     left: 0;
   }
-}
+} 
