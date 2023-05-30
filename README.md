@@ -1,5 +1,5 @@
 # Challenge Alura + Oracle
-## Decodificador de texto com Javascript - em construção
+## Decodificador de texto com Javascript
 
 <img src="./imgs/preview_dark_mode.png" width=550>
 <img src="./imgs/preview_light_mode.png" width=550>
